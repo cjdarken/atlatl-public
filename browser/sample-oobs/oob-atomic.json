@@ -1,0 +1,14 @@
+[
+    {
+        "type": "infantry",
+        "longName": "1/1/1",
+        "faction": "blue",
+        "currentStrength": 100
+    },
+    {
+        "type": "infantry",
+        "longName": "10/1/5",
+        "faction": "red",
+        "currentStrength": 100
+    }
+]

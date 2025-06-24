@@ -1,0 +1,107 @@
+[
+    {
+        "name" : "1",
+        "longName" : "1/1/7",
+        "uniqueId" : "red 1/1/5",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "red",
+        "echelon" : "regiment",
+        "type" : "infantry",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+    
+    {
+        "name" : "2",
+        "longName" : "2/1/7",
+        "uniqueId" : "red 2/1/7",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "red",
+        "echelon" : "regiment",
+        "type" : "mechinf",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+    
+        {
+        "name" : "3",
+        "longName" : "3/2/7",
+        "uniqueId" : "red 20/2/1",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "red",
+        "echelon" : "regiment",
+        "type" : "armor",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+    
+    {
+        "name" : "4",
+        "longName" : "4/2/7",
+        "uniqueId" : "red 4/2/7",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "red",
+        "echelon" : "regiment",
+        "type" : "artillery",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "31",
+        "longName" : "31/1/3",
+        "uniqueId" : "blue 31/1/3",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "infantry",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+    
+    {
+        "name" : "32",
+        "longName" : "32/1/3",
+        "uniqueId" : "blue 32/1/3",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "mechinf",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },    
+    
+    {
+        "name" : "33",
+        "longName" : "33/2/3",
+        "uniqueId" : "blue 33/2/3",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "armor",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },  
+    
+    {
+        "name" : "35",
+        "longName" : "35/3/3",
+        "uniqueId" : "blue 35/3/3",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "artillery",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    }
+
+]
+

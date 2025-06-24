@@ -1,0 +1,290 @@
+[
+    {
+        "name" : "1",
+        "longName" : "1/1/7",
+        "uniqueId" : "red 1/1/5",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "red",
+        "echelon" : "regiment",
+        "type" : "infantry",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+    
+    {
+        "name" : "2",
+        "longName" : "2/1/7",
+        "uniqueId" : "red 2/1/7",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "red",
+        "echelon" : "regiment",
+        "type" : "mechinf",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+    
+    {
+        "name" : "3",
+        "longName" : "3/2/7",
+        "uniqueId" : "red 20/2/1",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "red",
+        "echelon" : "regiment",
+        "type" : "armor",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+    
+    {
+        "name" : "4",
+        "longName" : "4/2/7",
+        "uniqueId" : "red 4/2/7",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "red",
+        "echelon" : "regiment",
+        "type" : "artillery",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "31",
+        "longName" : "31/1/3",
+        "uniqueId" : "blue 31/1/3",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "infantry",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+    
+    {
+        "name" : "32",
+        "longName" : "32/1/3",
+        "uniqueId" : "blue 32/1/3",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "mechinf",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },    
+    
+    {
+        "name" : "33",
+        "longName" : "33/2/3",
+        "uniqueId" : "blue 33/2/3",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "armor",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },  
+    
+    {
+        "name" : "35",
+        "longName" : "35/3/3",
+        "uniqueId" : "blue 35/3/3",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "artillery",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "1",
+        "longName" : "sym 1",
+        "uniqueId" : "blue sym 1",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "hq",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "2",
+        "longName" : "sym 2",
+        "uniqueId" : "blue sym 2",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "usmc",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "3",
+        "longName" : "sym 3",
+        "uniqueId" : "blue sym 3",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "himars",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "4",
+        "longName" : "sym 4",
+        "uniqueId" : "blue sym 4",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "fighter",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "5",
+        "longName" : "sym 5",
+        "uniqueId" : "blue sym 5",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "bomber",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "6",
+        "longName" : "sym 6",
+        "uniqueId" : "blue sym 6",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "atkhelo",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "7",
+        "longName" : "sym 7",
+        "uniqueId" : "blue sym 7",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "accarrier",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "8",
+        "longName" : "sym 8",
+        "uniqueId" : "blue sym 8",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "destroyer",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "9",
+        "longName" : "sym 9",
+        "uniqueId" : "blue sym 9",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "corvette",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "9",
+        "longName" : "sym 9",
+        "uniqueId" : "blue sym 9",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "frigate",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "A",
+        "longName" : "sym A",
+        "uniqueId" : "blue sym A",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "cruiser",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "B",
+        "longName" : "sym B",
+        "uniqueId" : "blue sym B",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "sub",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "C",
+        "longName" : "sym C",
+        "uniqueId" : "blue sym C",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "amphibship",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+
+    {
+        "name" : "D",
+        "longName" : "sym D",
+        "uniqueId" : "blue sym D",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "aa",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    }
+
+
+]
+

@@ -1,0 +1,38 @@
+[
+    {
+        "type": "infantry",
+        "longName": "A",
+        "faction": "blue",
+        "currentStrength": 100
+    },
+    {
+        "type": "infantry",
+        "longName": "B",
+        "faction": "blue",
+        "currentStrength": 100
+    },
+    {
+        "type": "infantry",
+        "longName": "C",
+        "faction": "blue",
+        "currentStrength": 100
+    },
+    {
+        "type": "infantry",
+        "longName": "A",
+        "faction": "red",
+        "currentStrength": 100
+    },
+    {
+        "type": "infantry",
+        "longName": "B",
+        "faction": "red",
+        "currentStrength": 100
+    },
+    {
+        "type": "infantry",
+        "longName": "C",
+        "faction": "red",
+        "currentStrength": 100
+    }
+]

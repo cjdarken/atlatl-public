@@ -1,0 +1,152 @@
+<html>
+<meta charset="utf-8"/>
+<!-- <script src="map.js"></script> -->
+<script src="map.js" type="module"></script> 
+<script src="unit.js" type="module"></script>
+<script src="svg-create-view.js" type="module"></script>
+<script src="svg-util.js" type="module"></script>
+<script src="svg-map-view.js" type="module"></script>
+<script src="svg-unit-symbol.js" type="module"></script>
+<script src="svg-setup-marker.js" type="module"></script>
+<script src="style.js" type="module"></script>
+<script src="terrain.js" type="module"></script>
+<script src="unit-placement-control.js" type="module"></script>
+<script type="module">
+
+import {Map} from './map.js';
+import {SVGCreateView} from './svg-create-view.js';
+import {Unit} from './unit.js';
+import {UnitPlacementControl} from './unit-placement-control.js';
+
+function draw() {
+    
+    var width = 5;
+    var rows = document.getElementById('rows').value;
+    var cols = document.getElementById('cols').value;
+    var x_hex_margin = 6;
+    var y_hex_margin = 1;
+    var palette_width = 4;
+    var x_palette_margin = 0.5;
+    var y_palette_margin = 0.5;
+    
+    var param = {
+        width:width,
+        rows:rows,
+        cols:cols,
+        x_hex_margin:x_hex_margin,
+        y_hex_margin:y_hex_margin,
+        palette_width:palette_width,
+        x_palette_margin:x_palette_margin,
+        y_palette_margin:y_palette_margin
+    };
+    
+    Map.createHexGrid(rows,cols);
+    
+    SVGCreateView.createUnitPlacementView(param);
+         
+}
+
+function generate() {
+    draw();
+    Map.randomize();
+    Unit.placeUnits();
+    Unit.createSVG(UnitPlacementControl.unitMouseDownHandler);
+}
+
+
+function copy() {
+  const el = document.createElement('textarea');
+  let portableData = {map:Map.toPortable(), units:Unit.toPortable()};
+  el.value = JSON.stringify(portableData);
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+}
+
+function processMapJSON(str) {
+    Map.fromString(str);
+    
+    var width = 5;  // Hardcoded width for now
+    var x_hex_margin = 6;
+    var y_hex_margin = 1;
+    var palette_width = 4;
+    var x_palette_margin = 0.5;
+    var y_palette_margin = 0.5;
+    var param = {
+        width:width,
+        x_hex_margin:x_hex_margin,
+        y_hex_margin:y_hex_margin,
+        palette_width:palette_width,
+        x_palette_margin:x_palette_margin,
+        y_palette_margin:y_palette_margin
+    };
+    SVGCreateView.createUnitPlacementView(param);
+}
+
+function processOoBJSON(str) {
+    let unitsJson = JSON.parse(str);
+    Unit.fromPortable(unitsJson,a=>{});
+}
+
+function loadOobJSON() {
+    let str = prompt("Paste OoB JSON here","");
+    if (str)
+        processOoBJSON(str);
+}
+
+// From stackoverflow
+function save() {
+    //get svg element.
+    var svg = document.getElementById("mysvg");
+
+    //get svg source.
+    var serializer = new XMLSerializer();
+    var source = serializer.serializeToString(svg);
+
+    //add name spaces.
+    if(!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)){
+        source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+    }
+    if(!source.match(/^<svg[^>]+"http\:\/\/www\.w3\.org\/1999\/xlink"/)){
+        source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
+    }
+
+    //add xml declaration
+    source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+
+    //convert svg source to URI data scheme.
+    var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
+
+    //set url value to a element's href attribute.
+    document.getElementById("link").href = url;
+    //you can download svg file by right click menu.
+}
+
+// Allow funnctions to be accessed in HTML
+window.loadOobJSON = loadOobJSON; 
+window.generate = generate; 
+window.copy = copy; 
+</script>
+
+<body onload="">
+
+<label for="width">Cols: </label>
+<input type="text" name="cols" class="enter" value="10" size="2" id="cols"/>
+<label for="rows">Rows: </label>
+<input type="text" name="rows" class="enter" value="10" size="2" id="rows"/>
+<!--
+<label for="width">Delta Score Per Point Blue Killed: </label>
+<input type="text" name="score_blue" class="enter" value="-2" size="2" id="score_blue"/>
+<label for="rows">Per Point Red Killed:</label>
+<input type="text" name="score_red" class="enter" value="1" size="2" id="score_red"/>
+<label for="width">Per Phase All Cities Occupied by Blue: </label>
+<input type="text" name="score_cities" class="enter" value="24" size="2" id="score_cities"/>
+-->
+<input id="loadOob" type="button" value="Load OoB JSON" onclick="loadOobJSON();" />
+<input id="generate" type="button" value="Generate Scenario" onclick="generate();" />
+<input id="copy" type="button" value="Copy JSON to Clipboard" onclick="copy();" />
+<br/>
+
+</body>
+</html>

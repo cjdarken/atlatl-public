@@ -1,0 +1,177 @@
+<html>
+<meta charset="utf-8"/>
+<script src="map.js" type="module"></script>
+<script src="unit.js" type="module"></script>
+<script src="svg-create-view.js" type="module"></script>
+<script src="svg-util.js" type="module"></script>
+<script src="svg-map-view.js" type="module"></script>
+<script src="svg-unit-symbol.js" type="module"></script>
+<script src="svg-setup-marker.js" type="module"></script>
+<script src="style.js" type="module"></script>
+<script src="terrain.js" type="module"></script>
+<script src="unit-placement-control.js" type="module"></script>
+<script src="test-data.js"></script>
+
+<script type="module">
+import {Map} from './map.js';
+import {SVGCreateView} from './svg-create-view.js';
+import {Unit} from './unit.js';
+import {UnitPlacementControl} from './unit-placement-control.js';
+
+function draw() {
+    
+    var width = document.getElementById('width').value;
+    var rows = document.getElementById('rows').value;
+    var cols = document.getElementById('cols').value;
+    var x_hex_margin = 6;
+    var y_hex_margin = 1;
+    var palette_width = 4;
+    var x_palette_margin = 0.5;
+    var y_palette_margin = 0.5;
+    
+    var param = {
+        width:width,
+        rows:rows,
+        cols:cols,
+        x_hex_margin:x_hex_margin,
+        y_hex_margin:y_hex_margin,
+        palette_width:palette_width,
+        x_palette_margin:x_palette_margin,
+        y_palette_margin:y_palette_margin
+    };
+    
+    Map.createHexGrid(rows,cols);
+    
+    SVGCreateView.createUnitPlacementView(param);
+         
+}
+
+function copy() {
+  // Retrieve score parameters from input boxes
+  let score = {};
+  score.maxPhases = parseFloat( document.getElementById("maxPhases").value );
+  score.lossPenalty = parseFloat( document.getElementById("lossPenalty").value );
+  score.cityScore = parseFloat( document.getElementById("cityScore").value ); 
+
+  const el = document.createElement('textarea');
+  let portableData = {map:Map.toPortable(), units:Unit.toPortable(), score:score};
+  portableData.map.fogOfWar = document.getElementById("fogOfWarId").checked;
+  el.value = JSON.stringify(portableData);
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+}
+
+function processMapJSON(str) {
+    Map.fromString(str);
+    
+    var width = 5;  // Hardcoded width for now
+    var x_hex_margin = 6;
+    var y_hex_margin = 1;
+    var palette_width = 4;
+    var x_palette_margin = 0.5;
+    var y_palette_margin = 0.5;
+    var param = {
+        width:width,
+        x_hex_margin:x_hex_margin,
+        y_hex_margin:y_hex_margin,
+        palette_width:palette_width,
+        x_palette_margin:x_palette_margin,
+        y_palette_margin:y_palette_margin
+    };
+    SVGCreateView.createUnitPlacementView(param);
+}
+
+function loadMapJSON() {
+    let str = prompt("Paste map JSON here","");
+    if (str) 
+        processMapJSON(str);
+}
+
+function processOoBJSON(str) {
+    let unitsJson = JSON.parse(str);
+    Unit.fromPortable2(unitsJson,UnitPlacementControl.unitMouseDownHandler);
+    // Units all have hexes if we loaded a scenario, or else none do if we loaded just on OoB
+    if (!Unit.units[0].hex) {
+        Unit.placeUnits();
+        Unit.createSVG(UnitPlacementControl.unitMouseDownHandler);
+    }
+}
+
+function loadOobJSON() {
+    let str = prompt("Paste OoB JSON here","");
+    if (str)
+        processOoBJSON(str);
+}
+
+function processTestInput() {
+    processMapJSON( TestData.mapJSON );
+    processOoBJSON( TestData.oobJSON );
+}
+
+function loadScnJSON() {
+    let str = prompt("Paste scenario JSON here","");
+    let scn = JSON.parse(str);
+    // Extract map and units and turn them back into strings to process further
+    processMapJSON( JSON.stringify(scn.map) );
+    processOoBJSON( JSON.stringify(scn.units) );
+}
+
+// From stackoverflow
+function save() {
+    //get svg element.
+    var svg = document.getElementById("mysvg");
+
+    //get svg source.
+    var serializer = new XMLSerializer();
+    var source = serializer.serializeToString(svg);
+
+    //add name spaces.
+    if(!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)){
+        source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+    }
+    if(!source.match(/^<svg[^>]+"http\:\/\/www\.w3\.org\/1999\/xlink"/)){
+        source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
+    }
+
+    //add xml declaration
+    source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+
+    //convert svg source to URI data scheme.
+    var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
+
+    //set url value to a element's href attribute.
+    document.getElementById("link").href = url;
+    //you can download svg file by right click menu.
+}
+
+// Allows functions to be invoked from HTML
+window.loadMapJSON = loadMapJSON;
+window.loadOobJSON = loadOobJSON;
+window.loadScnJSON = loadScnJSON;
+window.copy = copy;
+window.processTestInput = processTestInput;
+</script>
+
+
+<!--<body onload="debug()">-->
+<body onload="">
+
+<input id="loadMap" type="button" value="Load Map JSON" onclick="loadMapJSON();" />
+<input id="loadOob" type="button" value="Load OoB JSON" onclick="loadOobJSON();" />
+<input id="loadScn" type="button" value="Load Scenario JSON" onclick="loadScnJSON();" />
+<input id="copy" type="button" value="Copy Scenario to Clipboard" onclick="copy();" />
+<input id="test" type="button" value="Test Input" onclick="processTestInput();" />
+Max phases:
+<input type="text" id="maxPhases" value="20" size="2">
+Blue loss penalty:
+<input type="text" id="lossPenalty" value="-2.0" size="4">
+Total city score per phase:
+<input type="text" id="cityScore" value="24" size="2">
+<input type="checkbox" id="fogOfWarId" name="fogOfWarName" value="fogOfWarValue">
+  <label for="fogOfWarId"> Fog of War</label>
+<br/>
+
+</body>
+</html>

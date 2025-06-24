@@ -1,0 +1,33 @@
+<html>
+<meta charset="utf-8"/>
+
+<script type="module">
+import {Play} from "./play.js";
+// Allows certain Play functions to be invoked from HTML
+window.init = Play.init;
+window.bluePressed = Play.bluePressed;
+window.redPressed = Play.redPressed;
+window.endMovePressed = Play.endMovePressed;
+window.sendReset = Play.sendReset;
+window.sendNextGame = Play.sendNextGame;
+</script>
+
+<body onload="init()">
+
+Role request:
+<input id="blue" type="button" value="Blue" onclick="bluePressed(this);" disabled/>
+<input id="red" type="button" value="Red" onclick="redPressed(this);" disabled/>
+&nbsp;
+OnMove: <span id="onmove">None</span>
+&nbsp;
+Phase: <span id="phase">None</span>
+<input id="end-move" type="button" value="End Phase" onclick="endMovePressed();" disabled/>
+&nbsp;
+Score: <span id="score">None</span>
+<input id="reset" type="button" value="Reset" onclick="sendReset();" disabled/>
+<input id="next-game" type="button" value="Next Game" onclick="sendNextGame();" disabled/>
+&nbsp;
+Status: <span id="status">Not connected</span>
+
+</body>
+</html>

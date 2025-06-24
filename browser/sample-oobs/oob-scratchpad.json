@@ -1,0 +1,80 @@
+[
+    {
+        "name" : "A",
+        "longName" : "A/1/1",
+        "uniqueId" : "red A/1/1",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "red",
+        "echelon" : "regiment",
+        "type" : "infantry",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+    
+    {
+        "name" : "B",
+        "longName" : "B/1/1",
+        "uniqueId" : "red B/1/1",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "red",
+        "echelon" : "regiment",
+        "type" : "infantry",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+    
+    {
+        "name" : "C",
+        "longName" : "C/1/1",
+        "uniqueId" : "red C/1/1",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "red",
+        "echelon" : "regiment",
+        "type" : "infantry",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+    
+    {
+        "name" : "A",
+        "longName" : "A/1/2",
+        "uniqueId" : "blue A/1/2",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "infantry",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+    
+    {
+        "name" : "B",
+        "longName" : "B/1/2",
+        "uniqueId" : "blue B/1/2",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "infantry",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    },
+    
+    {
+        "name" : "C",
+        "longName" : "C/1/2",
+        "uniqueId" : "blue C/1/2",
+        "homeOrgId" : null,
+        "taskOrgId" : null,
+        "faction" : "blue",
+        "echelon" : "regiment",
+        "type" : "infantry",
+        "fullStrength" : 100,
+        "currentStrength" : 100
+    }
+]
+

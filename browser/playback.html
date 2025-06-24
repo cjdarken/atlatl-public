@@ -1,0 +1,42 @@
+<html>
+<meta charset="utf-8"/>
+<script src="map.js" type="module"></script>
+<script src="unit.js" type="module"></script>
+<script src="svg-create-view.js" type="module"></script>
+<script src="svg-util.js" type="module"></script>
+<script src="svg-map-view.js" type="module"></script>
+<script src="svg-unit-symbol.js" type="module"></script>
+<script src="svg-gui.js" type="module"></script>
+<script src="svg-setup-marker.js" type="module"></script>
+<script src="style.js" type="module"></script>
+<script src="terrain.js" type="module"></script>
+<script src="human-player-control.js" type="module"></script>
+<script src="mobility.js" type="module"></script>
+<script src="combat.js" type="module"></script>
+<script src="unit-placement-control.js" type="module"></script>
+<script src="playback.js" type="module"></script>
+<script src="replay.js"></script>
+<script type="module">
+import {Playback} from "./playback.js";
+window.init = Playback.init;
+window.next_message = Playback.next_message;
+window.play = Playback.play;
+window.terrain_color = Playback.terrain_color;
+window.false_color = Playback.false_color;
+window.orders_color = Playback.orders_color;
+window.set_play_mode = Playback.set_play_mode;
+
+</script>
+
+<body onload="init();">
+
+<input id="step" type="button" value="Step" onclick="set_play_mode(false); next_message();" />
+<input id="play" type="button" value="Play" onclick="set_play_mode(true); play();" />
+<input id="stop" type="button" value="Stop" onclick="set_play_mode(false);" />
+<input id="terrain_color" type="button" value="Terrain Color" onclick="terrain_color();" />
+<input id="false_color" type="button" value="False Color" onclick="false_color();" />
+<input id="orders_color" type="button" value="Orders Echelon Color" onclick="orders_color();" />
+<input type="text" name="orders_echelon" value="NA" size="1" id="orders_echelon" readOnly="True"/>
+
+</body>
+</html>
